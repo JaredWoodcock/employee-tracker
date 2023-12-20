@@ -91,12 +91,12 @@ function startApp() {
                         {
                             type: 'input',
                             name: 'salary',
-                            message: 'Enter the salary for the role:',
+                            message: 'Enter the salary for the role (include decimals):',
                         },
                         {
                             type: 'input',
                             name: 'department',
-                            message: 'Enter the department for the role:',
+                            message: 'Enter the department ID for the role:',
                         },
                     ])
                     .then((answers) => {

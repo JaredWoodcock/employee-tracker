@@ -12,7 +12,7 @@ INSERT INTO role (id, title, salary, department_id) VALUES
 (3, 'Engineering Director', 150000.00, 3),
 (4, 'Software engineer', 80000.00, 3),
 (5, 'Financial Manager', 200000.00, 4),
-(6, 'HR Manager', 75000.00, 5),
+(6, 'HR Manager', 75000.00, 5);
 
 
 INSERT INTO employee (id, first_name, last_name, role_id, manager_id) VALUES
