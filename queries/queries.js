@@ -1,5 +1,7 @@
+// Importing the database connection
 const connection = require('../connection/connection');
 
+// Function to view all departments and formatting for column headers
 function viewAllDepartments() {
     const query = `
         SELECT
@@ -11,6 +13,7 @@ function viewAllDepartments() {
     return connection.promise().query(query);
 }
 
+// Function to view all roles and formatting for column headers
 function viewAllRoles() {
     const query = `
         SELECT
@@ -26,6 +29,7 @@ function viewAllRoles() {
     return connection.promise().query(query);
 }
 
+// Function to view all employees and formatting for column headers
 function viewAllEmployees() {
     const query = `
         SELECT
@@ -45,29 +49,33 @@ function viewAllEmployees() {
     `;
     return connection.promise().query(query);
 }
-  
+
+// Function to add a new department
 function addDepartment(departmentName) {
     const query = 'INSERT INTO department (name) VALUES (?)';
     return connection.promise().query(query, [departmentName]);
 }
 
+// Function to add a new role
 function addRole(title, salary, departmentId) {
     const query = 'INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)';
     return connection.promise().query(query, [title, salary, departmentId]);
 }
 
+// Function to add a new employee
 function addEmployee(firstName, lastName, roleId, managerId) {
     const managerIdValue = managerId === '' ? null : managerId;
     const query = 'INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)';
     return connection.promise().query(query, [firstName, lastName, roleId, managerIdValue]);
 }
 
+// Function to update an employee's role
 function updateEmployeeRole(employeeId, newRoleId) {
     const query = 'UPDATE employee SET role_id = ? WHERE id = ?';
     return connection.promise().query(query, [newRoleId, employeeId]);
 }
 
-
+// Exporting all functions
 module.exports = {
     viewAllDepartments,
     viewAllRoles,

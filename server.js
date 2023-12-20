@@ -1,7 +1,10 @@
+// Importing inquirer and the queries
 const inquirer = require('inquirer');
 const queries = require('./queries/queries');
 
+// Function to start the application
 function startApp() {
+// Prompts the user with the below list of actions to choose from
   inquirer
     .prompt([
       {
@@ -21,8 +24,10 @@ function startApp() {
       },
     ])
     .then((answers) => {
+        // Switch statement to handle different user choices
         switch (answers.action) {
             case 'View all departments':
+                // Query and show all departments
                 queries.viewAllDepartments()
                     .then(([rows, fields]) => {
                         console.table(rows);
@@ -35,6 +40,7 @@ function startApp() {
                 break;
 
             case 'View all roles':
+                // Query and view all roles
                 queries.viewAllRoles()
                     .then(([rows, fields]) => {
                         console.table(rows);
@@ -47,6 +53,7 @@ function startApp() {
                 break;
 
             case 'View all employees':
+                // Query and view all employees
                 queries.viewAllEmployees()
                     .then(([rows, fields]) => {
                         console.table(rows);
@@ -59,6 +66,7 @@ function startApp() {
                 break;
 
             case 'Add a department':
+                // Prompts the user to enter a new department name and adds it to the database
                 inquirer
                     .prompt([
                         {
@@ -81,6 +89,7 @@ function startApp() {
                 break;
 
             case 'Add a role':
+                // Prompts the user to enter a new role title, salary, and department id and adds it to the database
                 inquirer
                     .prompt([
                         {
@@ -113,6 +122,7 @@ function startApp() {
                 break;
 
             case 'Add an employee':
+                // Prompts the user to enter a first and last name, role id to asign them to, and their manager id and adds it to the database
                 inquirer
                     .prompt([
                         {
@@ -150,6 +160,7 @@ function startApp() {
                 break;
 
             case 'Update an employee role':
+                // Prompts for the employee id that the user wants to update, then asks for the new role id and updates the database
                 inquirer
                     .prompt([
                         {
@@ -177,10 +188,12 @@ function startApp() {
                 break;
 
             case 'Exit':
+                // Exits the application
                 console.log('Goodbye!');
                 process.exit(0);
             
             default:
+                // Handles invalid actions
                 console.log('Invalid action');
                 startApp();
         }
@@ -188,5 +201,5 @@ function startApp() {
 }
 
     
-
+// Starts the application
 startApp();

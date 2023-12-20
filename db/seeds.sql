@@ -1,3 +1,4 @@
+-- Seeds for the departments
 INSERT INTO department (id, name) VALUES
 (1, 'Management'),
 (2, 'Sales'),
@@ -5,7 +6,7 @@ INSERT INTO department (id, name) VALUES
 (4, 'Finance'),
 (5, 'HR');
 
-
+-- Seeds for the roles
 INSERT INTO role (id, title, salary, department_id) VALUES
 (1, 'CEO', 300000.00, 1),
 (2, 'Sales Manager', 75000.00, 2),
@@ -14,7 +15,7 @@ INSERT INTO role (id, title, salary, department_id) VALUES
 (5, 'Financial Manager', 200000.00, 4),
 (6, 'HR Manager', 75000.00, 5);
 
-
+-- Seeds for the employees
 INSERT INTO employee (id, first_name, last_name, role_id, manager_id) VALUES
 (1, 'Big', 'Boss', 1, NULL),
 (2, 'John', 'Doe', 2, 1),

@@ -1,6 +1,8 @@
+// Importing libraries
 const mysql = require('mysql2');
 require('dotenv').config();
 
+// Creating the MySQL connection
 const connection = mysql.createConnection({
   host: 'localhost',
   user: process.env.DB_USER,
@@ -16,4 +18,5 @@ connection.connect((err) => {
   }
 });
 
+// Exporting the MySQL connection
 module.exports = connection;
