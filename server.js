@@ -56,6 +56,7 @@ function startApp() {
                         console.error('Error:', err);
                         startApp();
                     });
+                break;
 
             case 'Add a department':
                 inquirer
